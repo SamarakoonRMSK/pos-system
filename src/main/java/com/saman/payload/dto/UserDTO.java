@@ -8,7 +8,7 @@ import lombok.Data;
 
 
 @Data
-public class UserDto {
+public class UserDTO {
     private Long id;
 
     private String fullName;

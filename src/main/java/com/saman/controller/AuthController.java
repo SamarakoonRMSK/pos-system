@@ -1,7 +1,7 @@
 package com.saman.controller;
 
 import com.saman.exceptions.UserException;
-import com.saman.payload.dto.UserDto;
+import com.saman.payload.dto.UserDTO;
 import com.saman.payload.response.AuthResponse;
 import com.saman.service.AuthService;
 import lombok.RequiredArgsConstructor;
@@ -22,14 +22,14 @@ public class AuthController {
 
     @PostMapping("/signup")
     public ResponseEntity<AuthResponse> signupHandler(
-            @RequestBody UserDto userDto
+            @RequestBody UserDTO userDto
             ) throws UserException {
         return ResponseEntity.ok(authService.signup(userDto));
     }
 
     @PostMapping("/login")
     public ResponseEntity<AuthResponse> loginHandler(
-            @RequestBody UserDto userDto
+            @RequestBody UserDTO userDto
     ) throws UserException {
         return ResponseEntity.ok(authService.login(userDto));
     }

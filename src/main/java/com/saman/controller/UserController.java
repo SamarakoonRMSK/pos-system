@@ -3,7 +3,7 @@ package com.saman.controller;
 import com.saman.exceptions.UserException;
 import com.saman.mapper.UserMapper;
 import com.saman.model.User;
-import com.saman.payload.dto.UserDto;
+import com.saman.payload.dto.UserDTO;
 import com.saman.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +17,7 @@ public class UserController {
     private final UserService userService;
 
     @GetMapping("/profile")
-    public ResponseEntity<UserDto> getUserProfile(
+    public ResponseEntity<UserDTO> getUserProfile(
             @RequestHeader("Authorization") String jwt
     ) throws UserException {
         User user = userService.getUserFromJwtToken(jwt);
@@ -25,7 +25,7 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<UserDto> getUserById(
+    public ResponseEntity<UserDTO> getUserById(
             @RequestHeader("Authorization") String jwt,
             @PathVariable Long id
     ) throws Exception, UserException {

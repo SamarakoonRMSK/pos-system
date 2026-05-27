@@ -16,7 +16,7 @@ import com.saman.domain.UserRole;
 import com.saman.exceptions.UserException;
 import com.saman.mapper.UserMapper;
 import com.saman.model.User;
-import com.saman.payload.dto.UserDto;
+import com.saman.payload.dto.UserDTO;
 import com.saman.payload.response.AuthResponse;
 import com.saman.repository.UserRepository;
 import com.saman.service.AuthService;
@@ -32,7 +32,7 @@ public class AuthServiceImpl implements AuthService {
     private final CustomUserImplementation customUserImplementation;
 
     @Override
-    public AuthResponse signup(UserDto userDto) throws UserException {
+    public AuthResponse signup(UserDTO userDto) throws UserException {
         User user = userRepository.findByEmail(userDto.getEmail());
         if(user != null){
             throw new UserException("Email already exists");
@@ -65,7 +65,7 @@ public class AuthServiceImpl implements AuthService {
     }
 
     @Override
-    public AuthResponse login(UserDto userDto) throws UserException {
+    public AuthResponse login(UserDTO userDto) throws UserException {
         String email = userDto.getEmail();
         String password = userDto.getPassword();
 
