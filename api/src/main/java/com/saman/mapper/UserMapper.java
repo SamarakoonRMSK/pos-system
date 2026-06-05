@@ -18,4 +18,18 @@ public class UserMapper {
         return userDto;
     }
 
+    public static User toEntity(UserDTO userDTO){
+        User createdUser = new User();
+        createdUser.setEmail(userDTO.getEmail());
+        createdUser.setFullName(userDTO.getFullName());
+        createdUser.setRole(userDTO.getRole());
+        createdUser.setCreatedAt(userDTO.getCreatedAt());
+        createdUser.setUpdatedAt(userDTO.getUpdatedAt());
+        createdUser.setLastLogin(userDTO.getLastLogin());
+        createdUser.setPhone(userDTO.getPhone());
+        createdUser.setPassword(userDTO.getPassword());
+
+        return createdUser;
+    }
+
 }
